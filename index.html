@@ -193,27 +193,92 @@ nav{padding:14px 4%;gap:17px}
 <p>© 2026 Jigyavox. All Rights Reserved.</p>
 </footer>
 
+
 <script>
-function toggle(btn){
-const article=btn.nextElementSibling;
-article.classList.toggle("open");
-btn.innerText=article.classList.contains("open")?"Read Less ↑":"Read More ↓";
+function toggle(btn) {
+  const article = btn.nextElementSibling;
+  article.classList.toggle("open");
+  btn.innerText = article.classList.contains("open")
+    ? "Read Less ↑" : "Read More ↓";
 }
-function filterCards(category,button){
-document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
-button.classList.add("active");
-document.querySelectorAll(".card").forEach(card=>{
-card.style.display=(category==="all"||card.dataset.category===category)?"block":"none";
-});
+
+function filterCards(category, button) {
+  document.querySelectorAll(".categories button")
+    .forEach(b => b.classList.remove("active"));
+  button.classList.add("active");
+
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display =
+      category === "all" || card.dataset.category === category
+        ? "block" : "none";
+  });
 }
-function searchCards(){
-const q=document.getElementById("search").value.toLowerCase().trim();
-document.querySelectorAll(".card").forEach(card=>{
-card.style.display=card.innerText.toLowerCase().includes(q)?"block":"none";
-});
+
+function searchCards() {
+  const q = document.getElementById("search").value.toLowerCase().trim();
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display =
+      card.innerText.toLowerCase().includes(q) ? "block" : "none";
+  });
 }
-document.getElementById("search").addEventListener("input",searchCards);
+
+function addPost(post) {
+  const sections = {
+    news: "#news .grid",
+    facts: "#facts .grid",
+    haryana: "#haryana .grid",
+    tech: "#tech .grid"
+  };
+
+  const target = document.querySelector(sections[post.category]);
+  if (!target) return;
+
+  const card = document.createElement("article");
+  card.className = "card";
+  card.dataset.category = post.category;
+
+  const img = document.createElement("img");
+  img.src = post.image || "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700";
+  img.alt = post.title || "Jigyavox article";
+  img.onerror = () => img.remove();
+
+  const content = document.createElement("div");
+  content.className = "content";
+
+  const tag = document.createElement("div");
+  tag.className = "tag";
+  tag.textContent = (post.category || "POST").toUpperCase();
+
+  const title = document.createElement("h3");
+  title.textContent = post.title || "Untitled";
+
+  const summary = document.createElement("p");
+  summary.textContent = post.summary || "";
+
+  const read = document.createElement("div");
+  read.className = "read";
+  read.textContent = "Read More ↓";
+  read.onclick = () => toggle(read);
+
+  const article = document.createElement("div");
+  article.className = "article";
+  article.textContent = post.content || "";
+
+  content.append(tag, title, summary, read, article);
+  card.append(img, content);
+  target.prepend(card);
+}
+
+fetch("posts.json")
+  .then(response => {
+    if (!response.ok) throw new Error("Posts not found");
+    return response.json();
+  })
+  .then(posts => {
+    if (Array.isArray(posts)) posts.forEach(addPost);
+  })
+  .catch(error => console.log("Posts loading:", error));
+
+document.getElementById("search").addEventListener("input", searchCards);
 </script>
 
-</body>
-</html>
