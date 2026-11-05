@@ -4,40 +4,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jigyavox - हिंदी में ताजा खबरें, Amazing Facts, Haryana GK और Technology">
-<title>Jigyavox - News & Amazing Facts</title>
+<meta name="theme-color" content="#081426">
+<meta name="description" content="Jigyavox Hindi News, Amazing Facts, Haryana GK and Technology.">
+<title>JIGYAVOX | News & Amazing Facts</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E💡%3C/text%3E%3C/svg%3E">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
-header{background:#101d36;color:white;padding:20px 5%}
-.logo{font-size:29px;font-weight:bold;color:#55dcf5}
-header p{font-size:13px;color:#cbd5e1;margin-top:5px}
-nav{background:#192b49;padding:14px 5%;display:flex;gap:22px;overflow-x:auto}
-nav a{color:white;text-decoration:none;white-space:nowrap;font-size:14px}
-.hero{background:linear-gradient(120deg,#101d36,#087b9c);color:white;padding:55px 7%;text-align:center}
-.hero h1{font-size:30px;margin-bottom:15px}
-.hero p{color:#d5f4ff;line-height:1.7}
-.search{margin-top:22px;padding:13px;width:90%;max-width:400px;border:0;border-radius:8px;font-size:15px}
-.container{padding:30px 5%;max-width:1100px;margin:auto}
-.heading{font-size:23px;margin-bottom:20px;border-left:5px solid #00bcd4;padding-left:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px #00000012}
-.card img{width:100%;height:155px;object-fit:cover}
-.card-content{padding:16px}
-.tag{color:#008ba7;font-size:12px;font-weight:bold}
-.card h3{font-size:18px;margin:10px 0;line-height:1.5}
-.card p{color:#667085;font-size:14px;line-height:1.6}
-.card a{display:inline-block;margin-top:12px;color:#008da9;text-decoration:none;font-weight:bold}
-footer{background:#101d36;color:white;text-align:center;padding:30px 15px;margin-top:30px}
-footer p{font-size:13px;color:#cbd5e1;margin-top:10px}
-@media(max-width:480px){.hero h1{font-size:25px}.container{padding:25px 4%}}
+:root{--bg:#081426;--panel:#10223c;--cyan:#39d9f2;--white:#f5faff;--muted:#a8b9ce}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--white)}
+a{color:inherit;text-decoration:none}
+header{background:#0d1b30;border-bottom:1px solid #233b58;padding:17px 6%;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font-size:27px;font-weight:900;letter-spacing:1px;color:var(--cyan)}
+.logo span{color:white}
+.tagline{font-size:11px;color:var(--muted);margin-top:5px;letter-spacing:2px}
+nav{display:flex;gap:22px;align-items:center;overflow-x:auto;background:#10223c;padding:15px 6%;white-space:nowrap}
+nav a{font-size:14px;color:#d8e8f8}
+nav a:hover{color:var(--cyan)}
+.hero{padding:65px 7%;text-align:center;background:radial-gradient(ellipse at top,#164d69,#0b1b32 65%,#081426)}
+.hero .label{color:var(--cyan);font-size:12px;letter-spacing:3px;font-weight:bold}
+.hero h1{font-size:clamp(30px,6vw,48px);margin:20px 0 12px;line-height:1.2}
+.hero h1 span{color:var(--cyan)}
+.hero p{color:var(--muted);line-height:1.8;font-size:15px}
+.searchbox{margin:28px auto 0;max-width:520px;display:flex;background:white;border-radius:10px;padding:5px}
+.searchbox input{flex:1;min-width:0;border:0;outline:0;padding:12px;font-size:15px}
+.searchbox button{border:0;background:#087f9c;color:white;border-radius:7px;padding:0 18px}
+.container{max-width:1150px;margin:auto;padding:38px 5%}
+.section-title{font-size:24px;margin-bottom:22px}
+.section-title span{color:var(--cyan)}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:27px}
+.categories button{background:#142b47;border:1px solid #294763;color:white;padding:10px 16px;border-radius:25px;cursor:pointer}
+.categories button.active,.categories button:hover{background:#087f9c;border-color:#39d9f2}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid #203d5b;border-radius:13px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:var(--cyan)}
+.card img{width:100%;height:175px;object-fit:cover;background:#203d5b}
+.content{padding:18px}
+.tag{font-size:11px;color:var(--cyan);font-weight:bold;letter-spacing:1px}
+.card h3{font-size:19px;line-height:1.5;margin:10px 0}
+.card p{color:var(--muted);font-size:14px;line-height:1.7}
+.read{display:inline-block;margin-top:15px;color:var(--cyan);font-weight:bold;cursor:pointer}
+.article{display:none;margin-top:15px;padding-top:14px;border-top:1px solid #294763;color:#d5e4f3;font-size:14px;line-height:1.8}
+.article.open{display:block}
+.article a{color:var(--cyan);text-decoration:underline}
+.empty{display:none;text-align:center;color:var(--muted);padding:30px}
+.about{background:#10223c;border:1px solid #294763;border-radius:15px;padding:28px;line-height:1.8;color:var(--muted)}
+.about h2{color:white;margin-bottom:10px}
+footer{background:#06101f;border-top:1px solid #203d5b;text-align:center;padding:35px 15px;color:var(--muted);font-size:13px;line-height:2}
+footer .logo{margin-bottom:10px}
+footer a{color:var(--cyan)}
+@media(max-width:600px){
+header{padding:15px 4%}
+nav{padding:14px 4%;gap:17px}
+.hero{padding:48px 5%}
+.container{padding:30px 4%}
+.grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">JIGYAVOX ✦</div>
-<p>NEWS • FACTS • KNOWLEDGE</p>
+<div>
+<div class="logo">✦ JIGYA<span>VOX</span></div>
+<div class="tagline">NEWS • FACTS • KNOWLEDGE</div>
+</div>
 </header>
 
 <nav>
@@ -46,245 +76,144 @@ footer p{font-size:13px;color:#cbd5e1;margin-top:10px}
 <a href="#facts">Amazing Facts</a>
 <a href="#haryana">Haryana GK</a>
 <a href="#tech">Technology</a>
+<a href="#about">About</a>
 </nav>
 
 <section class="hero">
-<h1>दुनिया को जानो, कुछ नया सीखो!</h1>
-<p>ताजा खबरें और हैरान कर देने वाले तथ्य,<br>अब आसान हिंदी में।</p>
-<input class="search" id="search" type="search" placeholder="अपनी पसंद का विषय खोजें...">
+<div class="label">WELCOME TO JIGYAVOX</div>
+<h1>दुनिया को जानो,<br><span>कुछ नया सीखो!</span></h1>
+<p>खबरें, विज्ञान, टेक्नोलॉजी और हैरान कर देने वाले तथ्य।<br>सब कुछ आसान हिंदी में।</p>
+<div class="searchbox">
+<input id="search" type="search" placeholder="खबर या तथ्य खोजें...">
+<button onclick="searchCards()">खोजें</button>
+</div>
 </section>
 
 <main class="container">
 
+<h2 class="section-title">Explore <span>Categories</span></h2>
+<div class="categories">
+<button class="active" onclick="filterCards('all',this)">All</button>
+<button onclick="filterCards('news',this)">News</button>
+<button onclick="filterCards('facts',this)">Facts</button>
+<button onclick="filterCards('haryana',this)">Haryana GK</button>
+<button onclick="filterCards('tech',this)">Technology</button>
+</div>
+
 <section id="news">
-<h2 class="heading">Latest News 📰</h2>
+<h2 class="section-title">Latest <span>News</span> 📰</h2>
 <div class="grid">
-<article class="card">
-<img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600" alt="News">
-<div class="card-content">
-<span class="tag">NEWS</span>
-<h3>देश और दुनिया की ताजा खबरें</h3>
-<p>महत्वपूर्ण खबरें और उनके पीछे की जानकारी यहां पढ़ें।</p>
-<a href="#news">जल्द आ रहा है →</a>
+<article class="card" data-category="news">
+<img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=700" alt="News">
+<div class="content">
+<div class="tag">NEWS UPDATE</div>
+<h3>देश और दुनिया की महत्वपूर्ण खबरें</h3>
+<p>ताजा और सत्यापित खबरें जल्द यहाँ प्रकाशित होंगी।</p>
+<div class="read" onclick="toggle(this)">Read More ↓</div>
+<div class="article">यह News सेक्शन है। यहाँ खबर प्रकाशित करते समय उसकी तारीख, विश्वसनीय स्रोत और पूरी जानकारी जरूर जोड़ें। अभी कोई लाइव News Feed जुड़ी नहीं है।</div>
 </div>
 </article>
 </div>
 </section>
 
-<section id="facts" style="margin-top:35px">
-<h2 class="heading">Amazing Facts 🌍</h2>
+<section id="facts" style="margin-top:42px">
+<h2 class="section-title">Amazing <span>Facts</span> 🌍</h2>
 <div class="grid">
-<article class="card">
-<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600" alt="Earth from space">
-<div class="card-content">
-<span class="tag">SPACE FACTS</span>
-<h3>अंतरिक्ष की अनोखी दुनिया</h3>
-<p>ब्रह्मांड से जुड़े रोचक वैज्ञानिक तथ्य जानिए।</p>
-<a href="#facts">जल्द आ रहा है →</a>
+
+<article class="card" data-category="facts">
+<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=700" alt="Earth">
+<div class="content">
+<div class="tag">SPACE FACT</div>
+<h3>अंतरिक्ष में आवाज क्यों नहीं सुनाई देती?</h3>
+<p>अंतरिक्ष के बारे में एक रोचक वैज्ञानिक तथ्य।</p>
+<div class="read" onclick="toggle(this)">Read More ↓</div>
+<div class="article">ध्वनि को यात्रा करने के लिए माध्यम चाहिए। अंतरिक्ष का अधिकांश हिस्सा लगभग निर्वात है, इसलिए वहाँ सामान्य ध्वनि यात्रा नहीं कर सकती। स्रोत: <a href="https://science.nasa.gov/" target="_blank">NASA Science</a></div>
 </div>
 </article>
-<article class="card">
-<img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=600" alt="Technology">
-<div class="card-content">
-<span class="tag">SCIENCE</span>
-<h3>विज्ञान के हैरान करने वाले तथ्य</h3>
-<p>विज्ञान की ऐसी बातें जो आपकी जिज्ञासा बढ़ा देंगी।</p>
-<a href="#facts">जल्द आ रहा है →</a>
+
+<article class="card" data-category="facts">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700" alt="Nature">
+<div class="content">
+<div class="tag">NATURE FACT</div>
+<h3>पृथ्वी पर दिन और रात कैसे होते हैं?</h3>
+<p>हमारे ग्रह की एक खास प्राकृतिक प्रक्रिया।</p>
+<div class="read" onclick="toggle(this)">Read More ↓</div>
+<div class="article">पृथ्वी अपनी धुरी पर घूमती है। जिस हिस्से पर सूर्य की रोशनी पड़ती है वहाँ दिन और दूसरे हिस्से में रात होती है। स्रोत: <a href="https://science.nasa.gov/earth/" target="_blank">NASA Earth</a></div>
 </div>
 </article>
+
 </div>
 </section>
 
-<section id="haryana" style="margin-top:35px">
-<h2 class="heading">Haryana GK 📚</h2>
+<section id="haryana" style="margin-top:42px">
+<h2 class="section-title">Haryana <span>GK</span> 📚</h2>
 <div class="grid">
-<article class="card">
-<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Fields">
-<div class="card-content">
-<span class="tag">HARYANA GK</span>
+<article class="card" data-category="haryana">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700" alt="Fields">
+<div class="content">
+<div class="tag">HARYANA KNOWLEDGE</div>
 <h3>हरियाणा सामान्य ज्ञान</h3>
-<p>हरियाणा के इतिहास, भूगोल और संस्कृति से जुड़ी जानकारी।</p>
-<a href="#haryana">जल्द आ रहा है →</a>
+<p>इतिहास, भूगोल, संस्कृति और महत्वपूर्ण जानकारियाँ।</p>
+<div class="read" onclick="toggle(this)">Read More ↓</div>
+<div class="article">हरियाणा से जुड़े महत्वपूर्ण GK सवाल-जवाब और अध्ययन सामग्री यहाँ जोड़ी जाएगी। जानकारी प्रकाशित करने से पहले सरकारी स्रोतों से जाँचें।</div>
 </div>
 </article>
 </div>
 </section>
 
-<section id="tech" style="margin-top:35px">
-<h2 class="heading">Technology & AI 💻</h2>
+<section id="tech" style="margin-top:42px">
+<h2 class="section-title">Technology & <span>AI</span> 💻</h2>
 <div class="grid">
-<article class="card">
-<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600" alt="AI">
-<div class="card-content">
-<span class="tag">TECHNOLOGY</span>
-<h3>AI की नई दुनिया</h3>
-<p>आर्टिफिशियल इंटेलिजेंस की उपयोगी जानकारी।</p>
-<a href="#tech">जल्द आ रहा है →</a>
+<article class="card" data-category="tech">
+<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=700" alt="Artificial Intelligence">
+<div class="content">
+<div class="tag">TECHNOLOGY</div>
+<h3>Artificial Intelligence क्या है?</h3>
+<p>AI की दुनिया को आसान भाषा में समझें।</p>
+<div class="read" onclick="toggle(this)">Read More ↓</div>
+<div class="article">Artificial Intelligence यानी कृत्रिम बुद्धिमत्ता ऐसी तकनीक है जिसमें कंप्यूटर सिस्टम सीखने, भाषा समझने और समस्याओं को हल करने जैसे काम करते हैं।</div>
 </div>
 </article>
+</div>
+</section>
+
+<section id="about" style="margin-top:42px">
+<div class="about">
+<h2>About JIGYAVOX ✦</h2>
+<p>Jigyavox एक हिंदी ज्ञान प्लेटफॉर्म है। हमारा उद्देश्य News, Amazing Facts, Science, Technology और Haryana GK की जानकारी सरल भाषा में लोगों तक पहुँचाना है।</p>
 </div>
 </section>
 
 </main>
 
 <footer>
-<h2>JIGYAVOX ✦</h2>
+<div class="logo">✦ JIGYAVOX</div>
 <p>दुनिया की रोचक बातें, आसान हिंदी में।</p>
+<p><a href="#about">About Us</a> | <a href="mailto:jangranaveen5966@gmail.com">Contact</a></p>
 <p>© 2026 Jigyavox. All Rights Reserved.</p>
 </footer>
 
 <script>
-document.getElementById("search").addEventListener("input",function(){
-let q=this.value.toLowerCase();
+function toggle(btn){
+const article=btn.nextElementSibling;
+article.classList.toggle("open");
+btn.innerText=article.classList.contains("open")?"Read Less ↑":"Read More ↓";
+}
+function filterCards(category,button){
+document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+button.classList.add("active");
+document.querySelectorAll(".card").forEach(card=>{
+card.style.display=(category==="all"||card.dataset.category===category)?"block":"none";
+});
+}
+function searchCards(){
+const q=document.getElementById("search").value.toLowerCase().trim();
 document.querySelectorAll(".card").forEach(card=>{
 card.style.display=card.innerText.toLowerCase().includes(q)?"block":"none";
 });
-});
+}
+document.getElementById("search").addEventListener("input",searchCards);
 </script>
-</body>
-</html>
 
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jigyavox - हिंदी में ताजा खबरें, Amazing Facts, Haryana GK और Technology">
-<title>Jigyavox - News & Amazing Facts</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
-header{background:#101d36;color:white;padding:20px 5%}
-.logo{font-size:29px;font-weight:bold;color:#55dcf5}
-header p{font-size:13px;color:#cbd5e1;margin-top:5px}
-nav{background:#192b49;padding:14px 5%;display:flex;gap:22px;overflow-x:auto}
-nav a{color:white;text-decoration:none;white-space:nowrap;font-size:14px}
-.hero{background:linear-gradient(120deg,#101d36,#087b9c);color:white;padding:55px 7%;text-align:center}
-.hero h1{font-size:30px;margin-bottom:15px}
-.hero p{color:#d5f4ff;line-height:1.7}
-.search{margin-top:22px;padding:13px;width:90%;max-width:400px;border:0;border-radius:8px;font-size:15px}
-.container{padding:30px 5%;max-width:1100px;margin:auto}
-.heading{font-size:23px;margin-bottom:20px;border-left:5px solid #00bcd4;padding-left:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px #00000012}
-.card img{width:100%;height:155px;object-fit:cover}
-.card-content{padding:16px}
-.tag{color:#008ba7;font-size:12px;font-weight:bold}
-.card h3{font-size:18px;margin:10px 0;line-height:1.5}
-.card p{color:#667085;font-size:14px;line-height:1.6}
-.card a{display:inline-block;margin-top:12px;color:#008da9;text-decoration:none;font-weight:bold}
-footer{background:#101d36;color:white;text-align:center;padding:30px 15px;margin-top:30px}
-footer p{font-size:13px;color:#cbd5e1;margin-top:10px}
-@media(max-width:480px){.hero h1{font-size:25px}.container{padding:25px 4%}}
-</style>
-</head>
-<body>
-
-<header>
-<div class="logo">JIGYAVOX ✦</div>
-<p>NEWS • FACTS • KNOWLEDGE</p>
-</header>
-
-<nav>
-<a href="#">Home</a>
-<a href="#news">News</a>
-<a href="#facts">Amazing Facts</a>
-<a href="#haryana">Haryana GK</a>
-<a href="#tech">Technology</a>
-</nav>
-
-<section class="hero">
-<h1>दुनिया को जानो, कुछ नया सीखो!</h1>
-<p>ताजा खबरें और हैरान कर देने वाले तथ्य,<br>अब आसान हिंदी में।</p>
-<input class="search" id="search" type="search" placeholder="अपनी पसंद का विषय खोजें...">
-</section>
-
-<main class="container">
-
-<section id="news">
-<h2 class="heading">Latest News 📰</h2>
-<div class="grid">
-<article class="card">
-<img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600" alt="News">
-<div class="card-content">
-<span class="tag">NEWS</span>
-<h3>देश और दुनिया की ताजा खबरें</h3>
-<p>महत्वपूर्ण खबरें और उनके पीछे की जानकारी यहां पढ़ें।</p>
-<a href="#news">जल्द आ रहा है →</a>
-</div>
-</article>
-</div>
-</section>
-
-<section id="facts" style="margin-top:35px">
-<h2 class="heading">Amazing Facts 🌍</h2>
-<div class="grid">
-<article class="card">
-<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600" alt="Earth from space">
-<div class="card-content">
-<span class="tag">SPACE FACTS</span>
-<h3>अंतरिक्ष की अनोखी दुनिया</h3>
-<p>ब्रह्मांड से जुड़े रोचक वैज्ञानिक तथ्य जानिए।</p>
-<a href="#facts">जल्द आ रहा है →</a>
-</div>
-</article>
-<article class="card">
-<img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=600" alt="Technology">
-<div class="card-content">
-<span class="tag">SCIENCE</span>
-<h3>विज्ञान के हैरान करने वाले तथ्य</h3>
-<p>विज्ञान की ऐसी बातें जो आपकी जिज्ञासा बढ़ा देंगी।</p>
-<a href="#facts">जल्द आ रहा है →</a>
-</div>
-</article>
-</div>
-</section>
-
-<section id="haryana" style="margin-top:35px">
-<h2 class="heading">Haryana GK 📚</h2>
-<div class="grid">
-<article class="card">
-<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Fields">
-<div class="card-content">
-<span class="tag">HARYANA GK</span>
-<h3>हरियाणा सामान्य ज्ञान</h3>
-<p>हरियाणा के इतिहास, भूगोल और संस्कृति से जुड़ी जानकारी।</p>
-<a href="#haryana">जल्द आ रहा है →</a>
-</div>
-</article>
-</div>
-</section>
-
-<section id="tech" style="margin-top:35px">
-<h2 class="heading">Technology & AI 💻</h2>
-<div class="grid">
-<article class="card">
-<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600" alt="AI">
-<div class="card-content">
-<span class="tag">TECHNOLOGY</span>
-<h3>AI की नई दुनिया</h3>
-<p>आर्टिफिशियल इंटेलिजेंस की उपयोगी जानकारी।</p>
-<a href="#tech">जल्द आ रहा है →</a>
-</div>
-</article>
-</div>
-</section>
-
-</main>
-
-<footer>
-<h2>JIGYAVOX ✦</h2>
-<p>दुनिया की रोचक बातें, आसान हिंदी में।</p>
-<p>© 2026 Jigyavox. All Rights Reserved.</p>
-</footer>
-
-<script>
-document.getElementById("search").addEventListener("input",function(){
-let q=this.value.toLowerCase();
-document.querySelectorAll(".card").forEach(card=>{
-card.style.display=card.innerText.toLowerCase().includes(q)?"block":"none";
-});
-});
-</script>
 </body>
 </html>
