@@ -1,1 +1,118 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JIGYAVOX Admin</title>
+<style>
+body{margin:0;background:#0b1020;color:white;font-family:Arial;padding:20px}
+.container{max-width:600px;margin:auto}
+h1{color:#38d9ff;text-align:center}
+input,textarea,select{width:100%;box-sizing:border-box;padding:13px;margin:8px 0;background:#18233a;color:white;border:1px solid #34445f;border-radius:8px}
+button{padding:12px;border:0;border-radius:8px;background:#00bde8;color:#00111b;font-weight:bold;margin:6px 2px}
+.post{background:#18233a;padding:12px;margin:12px 0;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>JIGYAVOX ADMIN</h1>
+<h3>Add New Post</h3>
+
+<input id="title" placeholder="Post Title">
+<select id="category">
+<option value="FACTS">Amazing Facts</option>
+<option value="NEWS">News</option>
+</select>
+<input id="image" placeholder="Image URL">
+<textarea id="summary" placeholder="Short Summary"></textarea>
+<textarea id="content" placeholder="Full Article"></textarea>
+
+<button onclick="addPost()">Add Post</button>
+<button onclick="downloadPosts()">Download posts.json</button>
+
+<h3>Manage Posts</h3>
+<div id="posts"></div>
+</div>
+
+<script>
+let posts=[];
+
+fetch("posts.json")
+.then(r=>r.json())
+.then(data=>{
+posts=Array.isArray(data)?data:[];
+showPosts();
+})
+.catch(()=>showPosts());
+
+function addPost(){
+let title=document.getElementById("title").value.trim();
+if(!title){alert("Title required");return;}
+
+posts.unshift({
+title,
+category:document.getElementById("category").value,
+image:document.getElementById("image").value.trim(),
+summary:document.getElementById("summary").value.trim(),
+content:document.getElementById("content").value.trim()
+});
+
+clearForm();
+showPosts();
+}
+
+function clearForm(){
+["title","image","summary","content"].forEach(id=>document.getElementById(id).value="");
+}
+
+function showPosts(){
+let box=document.getElementById("posts");
+box.innerHTML="";
+posts.forEach((p,i)=>{
+let div=document.createElement("div");
+div.className="post";
+let heading=document.createElement("b");
+heading.textContent=p.title||"Untitled";
+let edit=document.createElement("button");
+edit.textContent="Edit";
+edit.onclick=()=>editPost(i);
+let del=document.createElement("button");
+del.textContent="Delete";
+del.onclick=()=>deletePost(i);
+div.append(heading,document.createElement("br"),edit,del);
+box.appendChild(div);
+});
+}
+
+function editPost(i){
+let p=posts[i];
+document.getElementById("title").value=p.title||"";
+document.getElementById("category").value=p.category||"FACTS";
+document.getElementById("image").value=p.image||"";
+document.getElementById("summary").value=p.summary||"";
+document.getElementById("content").value=p.content||"";
+posts.splice(i,1);
+showPosts();
+}
+
+function deletePost(i){
+if(confirm("Delete this post?")){
+posts.splice(i,1);
+showPosts();
+}
+}
+
+function downloadPosts(){
+let blob=new Blob([JSON.stringify(posts,null,2)],{type:"application/json"});
+let url=URL.createObjectURL(blob);
+let a=document.createElement("a");
+a.href=url;
+a.download="posts.json";
+a.click();
+URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
+
